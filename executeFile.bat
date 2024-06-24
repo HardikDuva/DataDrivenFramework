@@ -1,0 +1,1 @@
+mvn clean test -DsuiteXmlFile=src\test\java\testng.xml

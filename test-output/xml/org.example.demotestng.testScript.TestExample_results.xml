@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="test1"
+           tests="2"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="7.470">
+  <properties />
+  
+  
+            <testcase name="shouldClickButton" time="3.894" classname="org.example.demotestng.testScript.wikipediaSearch" />
+                <testcase name="shouldCheckTheBox" time="3.576" classname="org.example.demotestng.testScript.wikipediaSearch" />
+      
+</testsuite>

@@ -1,0 +1,18 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name = "Safari" parallel="classes" thread-count="4">
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter" />
+    </listeners>
+
+    <parameter name="Browser" value="Safari"/>
+    <test name = "wikipediaSearch" >
+        <classes>
+            <class name = "example.demotestng.testScript.wikipediaSearchText1"/>
+            <class name = "example.demotestng.testScript.wikipediaSearchText2"/>
+            <class name = "example.demotestng.testScript.wikipediaSearchText3"/>
+            <class name = "example.demotestng.testScript.wikipediaSearchText4"/>
+        </classes>
+    </test>
+</suite>

@@ -1,15 +1,11 @@
 package example.demotestng.pages;
 
 import com.microsoft.playwright.*;
-import example.testrail.APIException;
-import example.testrail.TestRailManager;
-import org.testng.ITestResult;
+
 import org.testng.annotations.*;
 import example.utilities.FrameworkConfig;
-import java.io.IOException;
 
 import static example.utilities.TestConstants.RUN_HEADLESS;
-import static example.utilities.TestConstants.TEST_RESULT_ADD_TESTRAIL;
 
 public class BasePage {
 
@@ -17,9 +13,8 @@ public class BasePage {
     Browser browser;
     BrowserContext context;
     protected  Page page;
-    protected String testCaseId;
 
-    @BeforeTest
+    @BeforeClass
     @Parameters({"Browser"})
     public void launchBrowser(String brows) {
         FrameworkConfig.init(System.getProperty("user.dir")
@@ -30,26 +25,10 @@ public class BasePage {
         page = context.newPage();
     }
 
-    @AfterTest
+    @AfterClass
     public void closeBrowser() {
-        playwright.close();
-    }
-
-    @AfterMethod
-    public void addResultToTestRail(ITestResult iTestResult) throws APIException, IOException {
-        if(!TEST_RESULT_ADD_TESTRAIL) {
-            if(iTestResult.getStatus() == ITestResult.SUCCESS) {
-                TestRailManager.addResultForTestCase
-                        (testCaseId,TestRailManager.TEST_RAIL_PASS);
-            }
-
-            else if(iTestResult.getStatus() == ITestResult.FAILURE) {
-                TestRailManager.addResultForTestCase
-                        (testCaseId, TestRailManager.TEST_RAIL_FAIL);
-            }
-        }
-
         context.close();
+        playwright.close();
     }
 
     public void setBrowser(String browserStr) {
@@ -61,7 +40,7 @@ public class BasePage {
             browser = playwright.firefox().launch(
                     new BrowserType.LaunchOptions().setHeadless
                     (RUN_HEADLESS));
-        } else if (browserStr.contains("safari")) {
+        } else if (browserStr.toLowerCase().contains("safari")) {
             browser = playwright.webkit().launch(
                     new BrowserType.LaunchOptions().setHeadless
                     (RUN_HEADLESS));

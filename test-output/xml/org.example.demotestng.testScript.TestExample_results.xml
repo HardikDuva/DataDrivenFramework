@@ -8,7 +8,7 @@
   <properties />
   
   
-            <testcase name="shouldClickButton" time="3.894" classname="example.demotestng.testScript.wikipediaSearch" />
-                <testcase name="shouldCheckTheBox" time="3.576" classname="example.demotestng.testScript.wikipediaSearch" />
+            <testcase name="shouldClickButton" time="3.894" classname="example.demotestng.testScript.wikipediaSearchText1" />
+                <testcase name="shouldCheckTheBox" time="3.576" classname="example.demotestng.testScript.wikipediaSearchText1" />
       
 </testsuite>

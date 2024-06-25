@@ -12,9 +12,7 @@ public class SearchPage {
 
     public SearchPage(Page page) {
         this.page = page;
-        //this.searchTermInput = page.locator("input[name=\"search\"]");
         this.searchTermInput = page.locator("#searchInput");
-        //this.searchTermInput = page.locator("//input[@id=\"searchInput\"]");
     }
 
     public void navigate() {

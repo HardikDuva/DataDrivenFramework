@@ -1,4 +1,4 @@
-package example.demotestng.pages;
+package example.pages;
 
 import com.microsoft.playwright.*;
 

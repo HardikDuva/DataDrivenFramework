@@ -13,7 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-        <dependencies>
+    <dependencies>
 
         <dependency>
             <groupId>com.google.inject</groupId>
@@ -58,19 +58,21 @@
             <version>2.0.13</version>
 
         </dependency>
-            <!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
-            <dependency>
-                <groupId>com.googlecode.json-simple</groupId>
-                <artifactId>json-simple</artifactId>
-                <version>1.1.1</version>
-            </dependency>
+        <!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1.1</version>
+        </dependency>
 
-            <!--<dependency>
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter</artifactId>
-                <version>RELEASE</version>
-                <scope>compile</scope>
-            </dependency>-->
+
+
+        <!--<dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>-->
         <!-- https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>
             <groupId>org.testng</groupId>
@@ -85,11 +87,11 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-             <groupId>junit</groupId>
-             <artifactId>junit</artifactId>
-             <version>4.13.2</version>
-             <scope>compile</scope>
-         </dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>compile</scope>
+        </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
@@ -115,15 +117,7 @@
                 <version>2.22.1</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>suite/chrome.xml</suiteXmlFile>
-                        <suiteXmlFile>suite/firefox.xml</suiteXmlFile>
-                        <suiteXmlFile>suite/safari.xml</suiteXmlFile>
-                        <properties>
-                        <property>
-                        <name>suitethreadpoolsize</name>
-                        <value>5</value>
-                        </property>
-                        </properties>
+                        <suiteXmlFile>src/test/java/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

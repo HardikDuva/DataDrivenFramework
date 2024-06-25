@@ -1,4 +1,4 @@
-package example.demotestng.testScript;
+package example.testScript;
 
 import example.pages.BasePage;
 import example.pages.wikipedia.SearchPage;

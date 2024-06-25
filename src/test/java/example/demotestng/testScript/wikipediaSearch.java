@@ -1,7 +1,7 @@
-package org.example.demotestng.testScript;
+package example.demotestng.testScript;
 
-import org.example.demotestng.pages.BasePage;
-import org.example.demotestng.pages.wikipedia.SearchPage;
+import example.demotestng.pages.BasePage;
+import example.demotestng.pages.wikipedia.SearchPage;
 import org.testng.annotations.*;
 
 import java.util.regex.Pattern;

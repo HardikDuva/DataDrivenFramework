@@ -8,6 +8,6 @@
   <properties />
   
   
-            <testcase name="shouldClickButton" time="9.114" classname="org.example.demotestng.testScript.cartButtonClick" />
+            <testcase name="shouldClickButton" time="9.114" classname="example.demotestng.testScript.cartButtonClick" />
       
 </testsuite>

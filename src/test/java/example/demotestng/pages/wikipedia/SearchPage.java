@@ -1,4 +1,4 @@
-package org.example.demotestng.pages.wikipedia;
+package example.demotestng.pages.wikipedia;
 
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.*;

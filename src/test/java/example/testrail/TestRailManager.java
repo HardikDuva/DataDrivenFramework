@@ -1,4 +1,4 @@
-package org.example.testrail;
+package example.testrail;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -11,15 +11,15 @@ public class TestRailManager {
 
     public static int TEST_RUN_ID = 1;
 
-    public static String TEST_RAIL_USERNAME = "hardik@crenspire.com";
+    public static String TEST_RAIL_USERNAME = "";
 
-    public static String TEST_RAIL_PASSWORD = "Johnwick@2023";
+    public static String TEST_RAIL_PASSWORD = "";
 
     public static int TEST_RAIL_PASS = 1;
 
     public static int TEST_RAIL_FAIL = 5;
 
-    public static String TEST_RAIL_ENGINE_URL = "https://hardik1996.testrail.io/";
+    public static String TEST_RAIL_ENGINE_URL = "";
 
     public static void addResultForTestCase(String testCaseId,int status) throws APIException, IOException {
         APIClient apiClient = new APIClient(TEST_RAIL_ENGINE_URL);

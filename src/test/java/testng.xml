@@ -6,14 +6,15 @@
         <listener class-name="org.uncommons.reportng.HTMLReporter" />
     </listeners>
 
-    <test name = "wikipediaSearch">
+    <parameter name="Browser" value="chrome"/>
+    <test name = "wikipediaSearch" >
         <classes>
-            <class name = "org.example.demotestng.testScript.wikipediaSearch"/>
+            <class name = "example.demotestng.testScript.wikipediaSearch"/>
         </classes>
     </test>
     <test name = "cartButtonClick">
         <classes>
-            <class name = "org.example.demotestng.testScript.cartButtonClick"/>
+            <class name = "example.demotestng.testScript.cartButtonClick"/>
         </classes>
     </test>
 </suite>

@@ -1,7 +1,7 @@
-package org.example.demotestng.testScript;
+package example.demotestng.testScript;
 
-import org.example.demotestng.pages.BasePage;
-import org.example.demotestng.pages.flipkart.HomePage;
+import example.demotestng.pages.BasePage;
+import example.demotestng.pages.flipkart.HomePage;
 import org.testng.annotations.*;
 
 import java.util.regex.Pattern;

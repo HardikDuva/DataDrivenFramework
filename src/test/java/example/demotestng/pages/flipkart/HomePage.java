@@ -1,4 +1,4 @@
-package org.example.demotestng.pages.flipkart;
+package example.demotestng.pages.flipkart;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;

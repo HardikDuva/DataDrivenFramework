@@ -1,7 +1,7 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name = "Chrome" parallel="classes" thread-count="4">
+<suite name = "Chrome" parallel="classes" thread-count="10">
     <listeners>
         <listener class-name="org.uncommons.reportng.HTMLReporter" />
     </listeners>
@@ -13,6 +13,12 @@
             <class name = "example.demotestng.testScript.wikipediaSearchText2"/>
             <class name = "example.demotestng.testScript.wikipediaSearchText3"/>
             <class name = "example.demotestng.testScript.wikipediaSearchText4"/>
+            <class name = "example.demotestng.testScript.wikipediaSearchText5"/>
+            <class name = "example.demotestng.testScript.wikipediaSearchText6"/>
+            <class name = "example.demotestng.testScript.wikipediaSearchText7"/>
+            <class name = "example.demotestng.testScript.wikipediaSearchText8"/>
+            <class name = "example.demotestng.testScript.wikipediaSearchText9"/>
+            <class name = "example.demotestng.testScript.wikipediaSearchText10"/>
         </classes>
     </test>
 </suite>

@@ -115,7 +115,15 @@
                 <version>2.22.1</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                        <suiteXmlFile>suite/chrome.xml</suiteXmlFile>
+                        <suiteXmlFile>suite/firefox.xml</suiteXmlFile>
+                        <suiteXmlFile>suite/safari.xml</suiteXmlFile>
+                        <properties>
+                        <property>
+                        <name>suitethreadpoolsize</name>
+                        <value>5</value>
+                        </property>
+                        </properties>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

@@ -14,8 +14,9 @@ public class SearchPage {
         this.page = page;
         this.searchTermInput = page.locator("#searchInput");
     }
-
+    
     public void navigate() {
+        
         page.navigate("https://www.wikipedia.org/");
     }
 

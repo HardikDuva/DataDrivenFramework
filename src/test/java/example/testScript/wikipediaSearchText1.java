@@ -14,7 +14,9 @@ public class wikipediaSearchText1 extends BasePage {
     void shouldSearchResult() {
         SearchPage searchPage = new SearchPage(page);
         searchPage.navigate();
+        test.info("Navigate to search page");
         searchPage.search("testng");
         assertThat(page).hasTitle(Pattern.compile("TestNG"));
+        test.pass("Test Passed");
     }
 }

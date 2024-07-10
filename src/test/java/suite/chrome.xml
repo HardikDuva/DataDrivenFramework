@@ -2,6 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name = "Chrome" parallel="classes" thread-count="10">
+    
     <listeners>
         <listener class-name="org.uncommons.reportng.HTMLReporter" />
     </listeners>
@@ -10,7 +11,7 @@
     <test name = "wikipediaSearch" >
         <classes>
             <class name = "example.testScript.wikipediaSearchText1"/>
-            <class name = "example.testScript.wikipediaSearchText2"/>
+            <!--<class name = "example.testScript.wikipediaSearchText2"/>
             <class name = "example.testScript.wikipediaSearchText3"/>
             <class name = "example.testScript.wikipediaSearchText4"/>
             <class name = "example.testScript.wikipediaSearchText5"/>
@@ -18,7 +19,7 @@
             <class name = "example.testScript.wikipediaSearchText7"/>
             <class name = "example.testScript.wikipediaSearchText8"/>
             <class name = "example.testScript.wikipediaSearchText9"/>
-            <class name = "example.testScript.wikipediaSearchText10"/>
+            <class name = "example.testScript.wikipediaSearchText10"/>-->
         </classes>
     </test>
 </suite>

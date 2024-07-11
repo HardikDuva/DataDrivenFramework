@@ -2,6 +2,7 @@ package testScript;
 
 import com.configuration.BaseTest;
 import com.dataProvider.LoginTestDataProvider;
+import org.testng.Assert;
 import org.testng.annotations.*;
 
 import java.io.IOException;
@@ -9,8 +10,9 @@ import java.util.*;
 
 public class checkLogin extends BaseTest {
 
-    String outputExcelResultFileName = "";
-    String outputExcelResultSheetName = "";
+    String outputExcelResultFileName = "SauceLabResult";
+    String outputExcelResultSheetName = "LoginResult";
+    String functionality = "LoginCheck";
 
     private LinkedHashMap<String, LinkedHashMap<String, String>> executionAllClientResultMap = new LinkedHashMap<>();
 
@@ -27,7 +29,40 @@ public class checkLogin extends BaseTest {
         try {
             createWebdriver();
 
-            //Write test case
+            ObLogInPage().goToApp(projectURL);
+            ObLogInPage().enterUsername(username)
+                    .enterPassword(password)
+                    .clickOnLoginInButton();
+
+            boolean isPass = false;
+            if(!ObLogInPage().isUserLoggedIn()) {
+                if(ObLogInPage().isErrorMessageDisplayed()) {
+                    String errMsg = ObLogInPage().getDisplayedErrorMessage();
+                    if(errMsg.contains(expectedResult)) {
+                        testCaseStatus = "Pass";
+                        isPass = true;
+                    }
+
+                    else {
+                        actualResult = errMsg;
+                    }
+                }
+                else {
+                    actualResult = "Error Message is not displayed";
+                }
+
+                if (!isPass) {
+                    testCaseStatus = "Failed";
+                    ObLogInPage().captureFailedScreenShot("LoginFailed");
+                    Assert.fail(actualResult);
+                }
+            }
+
+            else {
+                testCaseStatus = "Pass";
+            }
+
+            closeBrowser();
         }
 
         catch (Exception e) {
@@ -43,17 +78,18 @@ public class checkLogin extends BaseTest {
             executionEachClientResultMap.put("Status", testCaseStatus);
             executionEachClientResultMap.put("ExpectedResult", expectedResult);
             executionEachClientResultMap.put("ActualResult", actualResult);
-            executionAllClientResultMap.put(project, executionEachClientResultMap);
+            executionAllClientResultMap.put(project + username, executionEachClientResultMap);
             closeBrowser();
         }
     }
 
     @AfterTest
     public void appendResultToExcelFile() throws IOException {
-        String filePath = createExcelSheetOutputResultFile("CheckLogin", outputExcelResultFileName,outputExcelResultSheetName,outputDirPath);
+        String filePath = createExcelSheetOutputResultFile(functionality,
+                outputExcelResultFileName,outputExcelResultSheetName,outputDirPath);
         createExcelSheetHeaderRowValue(filePath,outputExcelResultSheetName,executionAllClientResultMap);
         addRowColumnValueIntoExcelFile(filePath,outputExcelResultSheetName,executionAllClientResultMap);
-        sendResultFileToEmail(filePath);
+        //sendResultFileToEmail(filePath);
     }
 
 

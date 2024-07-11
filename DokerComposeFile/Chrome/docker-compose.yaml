@@ -12,8 +12,6 @@ services:
   chrome:
     image: selenium/node-chrome:latest
     shm_size: 2gb
-    volumes:
-      - ../suites/test_artefacts/downloads:/home/seluser/Downloads/
     depends_on: 
       - selenium-hub
     environment:

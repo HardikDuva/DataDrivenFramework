@@ -35,3 +35,5 @@ If you want to send the result to Email
 7. Run xml file from suite directory according to browser requirnment
 
 8. After run successfully you can find you result in "TestResult" directory.
+ - You can find execution result Excel Sheet under TestResult->BrowserName->TimeStamp->OutputResultSheet->FuncationalityName->ExcelSheetName.xlsx
+ - If any TCS failed you can find screenshot for that failed TCS under TestResult->BrowserName->TimeStamp->UI->FailedScreenshot

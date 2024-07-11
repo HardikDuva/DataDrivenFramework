@@ -82,7 +82,7 @@ public class BaseDriver {
                     File.separator + "PassedScreenShot";
 
             Utilities.createDir(directoryPath);
-            String relativePath = File.separator + fileSuffix + "_.png";
+            String relativePath = directoryPath + File.separator + fileSuffix + "_.png";
 
             File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
             FileUtils.copyFile(screenshot, new File(relativePath));
@@ -98,7 +98,7 @@ public class BaseDriver {
                     File.separator + "FailedScreenShot";
 
             Utilities.createDir(directoryPath);
-            String relativePath = File.separator + fileSuffix + "_.png";
+            String relativePath = directoryPath + File.separator + fileSuffix + "_.png";
 
             File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
             FileUtils.copyFile(screenshot, new File(relativePath));

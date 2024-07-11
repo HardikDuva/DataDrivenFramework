@@ -13,13 +13,13 @@ public class LoginTestDataProvider {
         ExcelConnector excelOperation = new ExcelConnector();
 
         //Data Read Excel sheet file path
-        String excelFilePath = "";
+        String excelFilePath = "./TestData/LoginTestData.xlsx";
 
         //How Many column have data
         int totalColumn = 5;
 
         //Data Read Excel sheet name
-        String sheetName = "";
+        String sheetName = "LoginData";
 
         return excelOperation.readFromExcel(excelFilePath,sheetName,totalColumn);
 

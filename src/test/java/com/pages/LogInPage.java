@@ -7,6 +7,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import java.util.List;
+
 public class LogInPage extends BaseTest {
 
     public LogInPage(BaseDriver baseDriver) {
@@ -14,15 +16,17 @@ public class LogInPage extends BaseTest {
         PageFactory.initElements(baseDriver.driver, this);
     }
 
-    @FindBy(xpath = "//input[@id=\"username\"]")
+    @FindBy(xpath = "//div[@class=\"login-box\"]//input[@id=\"user-name\"]")
     private WebElement usernameInputEle;
 
-    @FindBy(xpath = "//input[@id=\"password\"]")
+    @FindBy(xpath = "//div[@class=\"login-box\"]//input[@id=\"password\"]")
     private WebElement passwordInputEle;
 
-    @FindBy(xpath = "//form[@id=\"loginForm\"]" +
-            "//input[@type=\"submit\"]")
+    @FindBy(xpath = "//div[@class=\"login-box\"]//input[@id=\"login-button\"]")
     private WebElement loginButtonClickEle;
+
+    @FindBy(xpath = "//div[@class=\"login-box\"]//h3[@data-test=\"error\"]")
+    private List<WebElement> errorMessageEle;
 
     /**
      * The user navigate to product login page
@@ -62,7 +66,6 @@ public class LogInPage extends BaseTest {
             baseDriver.captureFailedScenarioScreenshot("PasswordFieldIssue");
             Assert.fail("Password field is not editable");
         }
-
         return this;
     }
 
@@ -76,8 +79,38 @@ public class LogInPage extends BaseTest {
             baseDriver.captureFailedScenarioScreenshot("LoginButtonFieldIssue");
             Assert.fail("Login Button field is not clickable");
         }
-
         return this;
     }
 
+    /**
+     * Checks if user Logged In
+     */
+    //will Navigate to Product URL Page
+    public boolean isUserLoggedIn() {
+        return baseDriver.getCurrentUrl().contains("inventory.html");
+    }
+
+    /**
+     * Checks if error message displayed
+     */
+    //Checks if error message displayed
+    public boolean isErrorMessageDisplayed() {
+        return !errorMessageEle.isEmpty();
+    }
+
+    /**
+     * Get displayed error message
+     */
+    //Get displayed error message
+    public String getDisplayedErrorMessage() {
+        return baseDriver.getText(errorMessageEle.get(0));
+    }
+
+    /**
+     * Capture Failed Screenshot
+     */
+    //Get displayed error message
+    public void captureFailedScreenShot(String fileSuffix) {
+        baseDriver.captureFailedScenarioScreenshot(fileSuffix);
+    }
 }

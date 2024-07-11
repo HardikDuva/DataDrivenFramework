@@ -3,7 +3,6 @@ package com.configuration;
 import com.pages.LogInPage;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
@@ -15,10 +14,12 @@ import java.util.Map;
 
 public class BaseTest {
 
+
+    private String serverURL = "http://localhost:4444/";
+    private final int limit = 60;
+
     public BaseDriver baseDriver = null;
     public String browser = null;
-    private String serverURL = "";
-    private final int limit = 60;
     protected String outputDirPath;
 
     @BeforeClass

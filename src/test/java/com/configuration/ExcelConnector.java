@@ -26,6 +26,10 @@ public class ExcelConnector {
 
             Utilities.createDir(directoryPath);
 
+            if(!resultFileName.contains(".xlsx")) {
+                resultFileName = resultFileName + ".xlsx";
+            }
+
             // Complete file path
             filePath = directoryPath + File.separator + resultFileName;
 
@@ -37,6 +41,7 @@ public class ExcelConnector {
             workbook.write(fileOut);
             System.out.println("Excel file created successfully at " + filePath);
         }
+
         catch (Exception e) {
             Assert.fail("Error "+ e.getMessage() +
                     "found while creating file " + resultFileName);
@@ -112,7 +117,8 @@ public class ExcelConnector {
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
+            Assert.fail("Error "+ e.getMessage() +
+                    "found while writing Data into the file " + excelFilePath);
         }
     }
 }

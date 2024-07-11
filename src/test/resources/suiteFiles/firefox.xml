@@ -9,7 +9,7 @@
     <parameter name="Browser" value="Firefox"/>
     <test name = "LogIn" >
         <classes>
-            <class name = "org.testScript.checkLogin"/>
+            <class name = "testScript.checkLogin"/>
         </classes>
     </test>
 </suite>

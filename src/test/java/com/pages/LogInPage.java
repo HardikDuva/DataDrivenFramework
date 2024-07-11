@@ -1,7 +1,7 @@
-package org.pages;
+package com.pages;
 
-import org.configuration.BaseDriver;
-import org.configuration.BaseTest;
+import com.configuration.BaseDriver;
+import com.configuration.BaseTest;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;

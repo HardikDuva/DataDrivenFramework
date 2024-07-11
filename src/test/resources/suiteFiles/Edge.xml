@@ -1,15 +1,15 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name = "Chrome">
+<suite name = "MicrosoftEdge" parallel="classes" thread-count="10">
     <listeners>
         <listener class-name="org.uncommons.reportng.HTMLReporter" />
     </listeners>
 
-    <parameter name="Browser" value="Chrome"/>
+    <parameter name="Browser" value="MicrosoftEdge"/>
     <test name = "LogIn" >
         <classes>
-            <class name = "org.testScript.checkLogin"/>
+            <class name = "testScript.checkLogin"/>
         </classes>
     </test>
 </suite>

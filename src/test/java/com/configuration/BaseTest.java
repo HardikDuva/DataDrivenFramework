@@ -1,25 +1,18 @@
-package org.configuration;
+package com.configuration;
 
-import org.pages.LogInPage;
-import org.utilities.EmailConnector;
-import org.utilities.ExcelConnector;
+import com.pages.LogInPage;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import static org.configuration.Utilities.getTimeStamp;
 
-/**
- * @author myname
- */
 public class BaseTest {
 
     public BaseDriver baseDriver = null;
@@ -32,9 +25,8 @@ public class BaseTest {
     @Parameters({"Browser"})
     public void setBrowser(String brw) {
         this.browser = brw;
-
         this.outputDirPath = "." + File.separator + "TestResult"
-                + File.separator + this.browser + File.separator + getTimeStamp();
+                + File.separator + this.browser + File.separator + Utilities.getTimeStamp();
     }
 
     /**
@@ -53,7 +45,7 @@ public class BaseTest {
     /**
      * Close the browser
      */
-    public void closeBrowser() {
+    protected void closeBrowser() {
         baseDriver.driver.quit();
     }
 

@@ -1,7 +1,7 @@
-package org.testScript;
+package testScript;
 
-import org.dataProvider.LoginTestDataProvider;
-import org.configuration.BaseTest;
+import com.configuration.BaseTest;
+import com.dataProvider.LoginTestDataProvider;
 import org.testng.annotations.*;
 
 import java.io.IOException;

@@ -1,6 +1,6 @@
-package org.dataProvider;
+package com.dataProvider;
 
-import org.utilities.ExcelConnector;
+import com.configuration.ExcelConnector;
 import org.testng.annotations.DataProvider;
 
 /**

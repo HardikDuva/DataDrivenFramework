@@ -1,4 +1,4 @@
-package org.configuration;
+package com.configuration;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
@@ -19,9 +19,6 @@ import java.time.Duration;
 import java.util.*;
 
 
-/**
- * @author myname
- */
 public class BaseDriver {
 
     public WebDriver driver = null;
@@ -84,12 +81,7 @@ public class BaseDriver {
             String directoryPath = outputDirectory + File.separator + "UI" +
                     File.separator + "PassedScreenShot";
 
-            // Create the directory if it does not exist
-            File directory = new File(directoryPath);
-            if (!directory.exists()) {
-                directory.mkdirs();
-            }
-
+            Utilities.createDir(directoryPath);
             String relativePath = File.separator + fileSuffix + "_.png";
 
             File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
@@ -105,12 +97,7 @@ public class BaseDriver {
             String directoryPath = outputDirectory + File.separator + "UI" +
                     File.separator + "FailedScreenShot";
 
-            // Create the directory if it does not exist
-            File directory = new File(directoryPath);
-            if (!directory.exists()) {
-                directory.mkdirs();
-            }
-
+            Utilities.createDir(directoryPath);
             String relativePath = File.separator + fileSuffix + "_.png";
 
             File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
@@ -139,18 +126,13 @@ public class BaseDriver {
     }
 
     public void waitUntilPageIsLoaded() {
-        ExpectedCondition<Boolean> pageLoadCondition = driver -> {
-            assert driver != null;
-            return "complete".equals(((JavascriptExecutor) driver).executeScript("return document.readyState"));
+        ExpectedCondition<Boolean> pageLoadCondition = Webdriver -> {
+            if (null == driver) {
+                return false;
+            }
+            String complete = (String) ((JavascriptExecutor) driver).executeScript("return document.readyState");
+            return null != complete && complete.equalsIgnoreCase("complete");
         };
-
-        newWait.until(pageLoadCondition);
-
-    }
-
-    public void waitForPageLoad() {
-        ExpectedCondition<Boolean> pageLoadCondition = driver
-                -> "complete".equals(((JavascriptExecutor) driver).executeScript("return document.readyState"));
 
         newWait.until(pageLoadCondition);
 
@@ -270,21 +252,11 @@ public class BaseDriver {
         executor.executeScript("arguments[0].textContent='" + text + "';", we);
     }
 
-    public void waitForDropDownToLoad(final WebElement elementId) {
-        ExpectedCondition<Boolean> newWaitCondition = driver -> {
-            Object ret = ((JavascriptExecutor) driver)
-                    .executeScript("return document.getElementById('" + elementId + "').length > 1");
-            return ret.equals(true);
-        };
-        newWait.until(newWaitCondition);
-
-    }
-
-    public void waitForElementToBeClickable(WebElement webElement, int implicitTime) {
+    public void waitForElementToBeClickable(WebElement webElement) {
         newWait.until(ExpectedConditions.elementToBeClickable(webElement));
     }
 
-    public void waitForElementState(WebElement webElement, int implicitTime, boolean elementState) {
+    public void waitForElementState(WebElement webElement,boolean elementState) {
         newWait.until(ExpectedConditions.elementSelectionStateToBe(webElement, elementState));
     }
 

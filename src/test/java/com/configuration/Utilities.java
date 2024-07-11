@@ -1,4 +1,4 @@
-package org.configuration;
+package com.configuration;
 
 import java.io.*;
 import java.nio.file.*;

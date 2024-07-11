@@ -1,4 +1,4 @@
-package org.utilities;
+package com.configuration;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.ss.usermodel.*;
@@ -10,8 +10,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
-import static org.configuration.Utilities.createDir;
 
 public class ExcelConnector {
 
@@ -26,7 +24,7 @@ public class ExcelConnector {
             String directoryPath = outputDir + File.separator + "OutputResultSheet" +
                     File.separator + functionality;
 
-            createDir(directoryPath);
+            Utilities.createDir(directoryPath);
 
             // Complete file path
             filePath = directoryPath + File.separator + resultFileName;

@@ -1,11 +1,10 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-
 <suite name = "Parallel Run">
     <suite-files>
-        <suite-file path="suite/chrome.xml"/>
-        <suite-file path="suite/firefox.xml"/>
-        <suite-file path="suite/Edge.xml"/>
+        <suite-file path="suiteFiles/chrome.xml"/>
+        <suite-file path="suiteFiles/firefox.xml"/>
+        <suite-file path="suiteFiles/Edge.xml"/>
     </suite-files>
 </suite>

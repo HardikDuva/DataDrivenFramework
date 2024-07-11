@@ -1,4 +1,4 @@
-package org.utilities;
+package com.configuration;
 
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
